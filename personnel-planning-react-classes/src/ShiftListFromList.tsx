@@ -1,10 +1,7 @@
-import { ChangeEvent, Component, ReactNode } from "react";
+import { Component, ReactNode } from "react";
 import withListData, { IListState } from "./withListData";
-import listComponent from "./withListData";
-import LoadingSpinner from "./LoadingSpinner";
-import { EmployeeService } from "./services/EmployeeService";
 import { ShiftService } from "./services/ShiftService";
-import { IEmployee, IShift } from "./types";
+import { IShift } from "./types";
 
 class ShiftList extends Component<IListState<IShift>, {}> {
 
@@ -12,7 +9,7 @@ class ShiftList extends Component<IListState<IShift>, {}> {
         return <>
             <h1>Shift List with HOC List</h1>
             {!this.props.isLoading && this.props.data.map((shift: IShift) => (
-                    <p key={`shift-list-${shift.id}`}>{shift.name}</p>
+                    <p key={`shift-list-hoc-${shift.id}`}>{shift.name}</p>
             ))}
         </>
     }

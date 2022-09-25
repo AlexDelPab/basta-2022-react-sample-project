@@ -59,7 +59,7 @@ class EmployeeList extends Component<IProps, IState> {
                     <select value={employee.shift?.id} onChange={(e) => this.handleChange(e, employee)}>
                         <option value="">Bitte auswählen</option>
                         {this.state.shifts.map((shift: IShift) => (
-                            <option value={shift.id}>{shift.name}</option>
+                            <option key={`select-shift-option-${shift.id}`} value={shift.id}>{shift.name}</option>
                             ))}
                     </select>
                     </div>
