@@ -21,10 +21,12 @@ const shifts: IShift[] = [
     { id: 4, name: 'Tagschicht' },
 ];
 
-if (!LocalStorageService.getList("employees")) {
+const employeeList = LocalStorageService.getList("employees");
+if (!employeeList || !employeeList.length) {
     LocalStorageService.saveList(employees, "employees");
 }
 
-if (!LocalStorageService.getList("shifts")) {
+const shiftList = LocalStorageService.getList("shifts");
+if (!shiftList || !shiftList.length) {
     LocalStorageService.saveList(shifts, "shifts");
 }
