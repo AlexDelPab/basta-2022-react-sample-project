@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import EmployeeList from './EmployeeList';
 import ShiftList from './ShiftList';
+import ShiftListFromList from './ShiftListFromList';
 
 interface IState {
   count: number;
@@ -31,6 +32,7 @@ class App extends Component<{}, IState> {
       <div className="App">
         <EmployeeList />
         <ShiftList />
+        <ShiftListFromList />
       </div>
     )
   }
