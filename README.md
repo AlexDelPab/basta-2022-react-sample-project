@@ -6,21 +6,29 @@ The sample application is about personnel planning, which means assigning shifts
 
 Data is generated randomly and stored in local storage.
 
-## Demonstration steps:
+## Demonstration steps
 
-In folder `personnel-planning-react-classes`
+This repository contains several subfolders with different implementations of the sample components.
 
-1. Explain and go through the sample application built with class components (state, props, lifecycle method componentDidMount)
-2. Show how to share stateful logic between class components
+1. In folder `src/classComponents`: Explain and go through the sample application built with class components (state, props, lifecycle method componentDidMount)
 
-In folder `personnel-planning-react-functions`
+2. Show how to share stateful logic between class components with higher order component
 
-1. Create same class components as functional components (with some errors)
-2. Fix and explain live errors
-3. Extract stateful logic into custom hook and share between components
+3. Split screen vscode and try to write the employee list as functional component (explain, debug and try to fix it)
+
+4. Create custom hook to extract state logic from list and use it also for shift list
+
+<hr>
+
+## Backup
+
+#### Folder `src/functionalComponentsWorking`
+
+This folder contains a working sample of the components written as functional components
 
 
-BACKUP: personnel-planning-react-functions-backup
+Folder `src/functionalComponentsBroken` 
 
+This folder contains all components written as functional components but with some errors
 
 
