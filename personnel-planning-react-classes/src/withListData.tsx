@@ -1,12 +1,13 @@
 import { Component, ReactNode } from "react";
 import LoadingSpinner from "./LoadingSpinner";
+import { Store } from "./services/Store";
 
 export interface IListState<T> {
     isLoading: boolean;
     data: T[];
 }
 
-function withListData<T>(WrappedComponent: any, loadData: () => Promise<T[]>) {
+function withListData<T>(WrappedComponent: any, store: Store<T>) {
     return class extends Component<{}, IListState<T>> {
         constructor(props: {}) {
             super(props);
@@ -18,10 +19,10 @@ function withListData<T>(WrappedComponent: any, loadData: () => Promise<T[]>) {
         }
 
         async componentDidMount(): Promise<void> {
-            const data = await loadData();
+            await store.loadAll();
             this.setState({
                 isLoading: false,
-                data: data
+                data: store.elements
             })
         }
 

@@ -1,7 +1,7 @@
 import { ChangeEvent, Component, ReactNode } from "react";
 import LoadingSpinner from "./LoadingSpinner";
-import { EmployeeService } from "./services/EmployeeService";
-import { ShiftService } from "./services/ShiftService";
+import { EmployeeStore } from "./services/EmployeeStore";
+import { ShiftStore } from "./services/ShiftStore";
 import { IEmployee, IShift } from "./types";
 
 interface IState {
@@ -14,6 +14,9 @@ interface IProps {}
 
 class EmployeeList extends Component<IProps, IState> {
 
+    private _employeeStore: EmployeeStore;
+    private _shiftStore: ShiftStore;
+
     constructor(props: IProps) {
         super(props);
 
@@ -23,15 +26,18 @@ class EmployeeList extends Component<IProps, IState> {
             isLoading: true
         };
 
+        this._employeeStore = new EmployeeStore();
+        this._shiftStore = new ShiftStore();
+
         this.handleChange = this.handleChange.bind(this);
     }
 
     async componentDidMount(): Promise<void> {
-        const loadedEmployees = await EmployeeService.getAll(true);
-        const loadedShifts = await ShiftService.getAll();
+        await this._employeeStore.loadAll(true);
+        await this._shiftStore.loadAll();
         this.setState({
-            employees: loadedEmployees,
-            shifts: loadedShifts,
+            employees: this._employeeStore.elements,
+            shifts: this._shiftStore.elements,
             isLoading: false
         })
     }
@@ -41,30 +47,29 @@ class EmployeeList extends Component<IProps, IState> {
         const shift = this.state.shifts.find(s => s.id === shiftId);
         
         if (shift) {
-            await EmployeeService.assignShift(employee, shift)
-            const loadedEmployees = await EmployeeService.getAll();
+            await this._employeeStore.assignShift(employee, shift)
             this.setState({
-                employees: loadedEmployees
+                employees: this._employeeStore.elements
             });
         }
     }
 
     render(): ReactNode {
-        return <>
+        return (<>
             <h1>Employee List</h1>
             {this.state.isLoading && <LoadingSpinner />}
             {!this.state.isLoading && this.state.employees.map((employee: IEmployee) => (
                 <div key={`employee-list-${employee.id}`}>
-                    <span style={{ marginRight: "10px"}}>{employee.firstName} {employee.lastName} - { employee.shift?.name ?? 'Keine Schicht'}</span>
+                    <span style={{ marginRight: "10px" }}>{employee.firstName} {employee.lastName} - {employee.shift?.name ?? 'Keine Schicht'}</span>
                     <select value={employee.shift?.id} onChange={(e) => this.handleChange(e, employee)}>
                         <option value="">Bitte auswählen</option>
                         {this.state.shifts.map((shift: IShift) => (
                             <option key={`select-shift-option-${shift.id}`} value={shift.id}>{shift.name}</option>
-                            ))}
+                        ))}
                     </select>
-                    </div>
+                </div>
             ))}
-        </>
+        </>);
     }
 }
 

@@ -1,7 +1,7 @@
 import { ChangeEvent, Component, ReactNode } from "react";
 import LoadingSpinner from "./LoadingSpinner";
-import { EmployeeService } from "./services/EmployeeService";
-import { ShiftService } from "./services/ShiftService";
+import { EmployeeStore } from "./services/EmployeeStore";
+import { ShiftStore } from "./services/ShiftStore";
 import { IEmployee, IShift } from "./types";
 
 interface IState {
@@ -13,6 +13,8 @@ interface IProps {}
 
 class ShiftList extends Component<IProps, IState> {
 
+    private _shiftStore: ShiftStore;
+
     constructor(props: IProps) {
         super(props);
 
@@ -20,12 +22,14 @@ class ShiftList extends Component<IProps, IState> {
             shifts: [],
             isLoading: true
         };
+
+        this._shiftStore = new ShiftStore();
     }
 
     async componentDidMount(): Promise<void> {
-        const loadedShifts = await ShiftService.getAll(true);
+        await this._shiftStore.loadAll(true);
         this.setState({
-            shifts: loadedShifts,
+            shifts: this._shiftStore.elements,
             isLoading: false
         })
     }
