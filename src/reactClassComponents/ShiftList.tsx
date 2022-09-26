@@ -1,8 +1,7 @@
-import { ChangeEvent, Component, ReactNode } from "react";
-import LoadingSpinner from "./LoadingSpinner";
-import { EmployeeStore } from "./services/EmployeeStore";
-import { ShiftStore } from "./services/ShiftStore";
-import { IEmployee, IShift } from "./types";
+import { Component, ReactNode } from "react";
+import LoadingSpinner from "../LoadingSpinner";
+import { ShiftStore } from "../services/ShiftStore";
+import { IShift } from "../types";
 
 interface IState {
     shifts: IShift[];

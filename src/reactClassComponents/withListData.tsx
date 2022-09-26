@@ -1,6 +1,6 @@
 import { Component, ReactNode } from "react";
-import LoadingSpinner from "./LoadingSpinner";
-import { Store } from "./services/Store";
+import LoadingSpinner from "../LoadingSpinner";
+import { Store } from "../services/Store";
 
 export interface IListState<T> {
     isLoading: boolean;

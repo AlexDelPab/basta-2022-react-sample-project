@@ -1,7 +1,7 @@
 import { Component, ReactNode } from "react";
 import withListData, { IListState } from "./withListData";
-import { ShiftStore } from "./services/ShiftStore";
-import { IShift } from "./types";
+import { ShiftStore } from "../services/ShiftStore";
+import { IShift } from "../types";
 
 class ShiftList extends Component<IListState<IShift>, {}> {
 

@@ -1,9 +1,9 @@
 import { Component, ReactNode, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import EmployeeList from './EmployeeList';
-import ShiftList from './ShiftList';
-import ShiftListFromList from './ShiftListFromList';
+import EmployeeList from './reactClassComponents/EmployeeList';
+import ShiftList from './reactClassComponents/ShiftList';
+import ShiftListFromList from './reactClassComponents/ShiftListFromList';
 
 interface IState {
   count: number;
@@ -30,6 +30,8 @@ class App extends Component<{}, IState> {
   render(): ReactNode {
     return (
       <div className="App">
+        <p>Counter: {this.state.count}</p>
+        <button onClick={this.incrementCounter}>+ 1</button>
         <h1>React Sample using class components</h1>
         <EmployeeList />
         <ShiftList />
