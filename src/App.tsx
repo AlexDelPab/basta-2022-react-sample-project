@@ -1,41 +1,31 @@
 import { Component, ReactNode, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import EmployeeList from './reactClassComponents/EmployeeList';
-import ShiftList from './reactClassComponents/ShiftList';
-import ShiftListFromList from './reactClassComponents/ShiftListFromList';
+import {EmployeeListCC} from './classComponents/EmployeeList';
+import {ShiftListCC} from './classComponents/ShiftList';
+import ShiftListFromList from './classComponents/ShiftListFromList';
+import EmployeeListFC from './functionalComponents/EmployeeList';
+import { ShiftListFC } from './functionalComponents/ShiftList';
 
-interface IState {
-  count: number;
-}
-
-class App extends Component<{}, IState> {
+class App extends Component<{}, {}> {
 
   constructor(props: {}) {
     super(props);
-
-    this.state = {
-      count: 0
-    };
-
-    this.incrementCounter = this.incrementCounter.bind(this);
-  }
-
-  incrementCounter(): void {
-    this.setState((prevState: IState) => ({
-      count: prevState.count + 1
-    }));
   }
 
   render(): ReactNode {
     return (
       <div className="App">
-        <p>Counter: {this.state.count}</p>
-        <button onClick={this.incrementCounter}>+ 1</button>
-        <h1>React Sample using class components</h1>
-        <EmployeeList />
-        <ShiftList />
-        <ShiftListFromList />
+        <div className="split left">
+          <h1>Class Components</h1>
+          <EmployeeListCC />
+          <ShiftListCC />
+          <ShiftListFromList />
+        </div>
+        <div className="split right">
+          <h1>Functional Components</h1>
+          <EmployeeListFC />
+          <ShiftListFC />
+        </div>
       </div>
     )
   }

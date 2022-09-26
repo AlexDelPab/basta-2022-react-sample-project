@@ -12,7 +12,7 @@ interface IState {
 
 interface IProps {}
 
-class EmployeeList extends Component<IProps, IState> {
+export class EmployeeListCC extends Component<IProps, IState> {
 
     private _employeeStore: EmployeeStore;
     private _shiftStore: ShiftStore;
@@ -72,5 +72,3 @@ class EmployeeList extends Component<IProps, IState> {
         </>);
     }
 }
-
-export default EmployeeList;

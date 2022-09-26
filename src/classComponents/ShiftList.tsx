@@ -10,7 +10,7 @@ interface IState {
 
 interface IProps {}
 
-class ShiftList extends Component<IProps, IState> {
+export class ShiftListCC extends Component<IProps, IState> {
 
     private _shiftStore: ShiftStore;
 
@@ -43,5 +43,3 @@ class ShiftList extends Component<IProps, IState> {
         </>
     }
 }
-
-export default ShiftList;
