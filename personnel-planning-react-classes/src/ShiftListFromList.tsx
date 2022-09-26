@@ -7,7 +7,7 @@ class ShiftList extends Component<IListState<IShift>, {}> {
 
     render(): ReactNode {
         return (<>
-            <h1>Shift List with HOC List</h1>
+            <h2>Shift List with HOC List</h2>
             {!this.props.isLoading && this.props.data.map((shift: IShift) => (
                 <p key={`shift-list-hoc-${shift.id}`}>{shift.name}</p>
             ))}

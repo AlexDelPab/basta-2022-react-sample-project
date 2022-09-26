@@ -30,6 +30,7 @@ class App extends Component<{}, IState> {
   render(): ReactNode {
     return (
       <div className="App">
+        <h1>React Sample using class components</h1>
         <EmployeeList />
         <ShiftList />
         <ShiftListFromList />

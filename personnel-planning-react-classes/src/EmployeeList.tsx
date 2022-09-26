@@ -56,7 +56,7 @@ class EmployeeList extends Component<IProps, IState> {
 
     render(): ReactNode {
         return (<>
-            <h1>Employee List</h1>
+            <h2>Employee List</h2>
             {this.state.isLoading && <LoadingSpinner />}
             {!this.state.isLoading && this.state.employees.map((employee: IEmployee) => (
                 <div key={`employee-list-${employee.id}`}>

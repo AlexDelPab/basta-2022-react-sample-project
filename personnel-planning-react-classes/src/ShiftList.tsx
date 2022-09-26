@@ -36,7 +36,7 @@ class ShiftList extends Component<IProps, IState> {
 
     render(): ReactNode {
         return <>
-            <h1>Shift List</h1>
+            <h2>Shift List</h2>
             {this.state.isLoading && <LoadingSpinner />}
             {!this.state.isLoading && this.state.shifts.map((shift: IShift) => (
                     <p key={`shift-list-${shift.id}`}>{shift.name}</p>
