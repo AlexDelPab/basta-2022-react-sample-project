@@ -2,8 +2,8 @@ import { Component, ReactNode, useState } from 'react'
 import './App.css'
 import {EmployeeListCC} from './classComponents/EmployeeList';
 import ShiftListCC from './classComponents/ShiftListFromList';
-import EmployeeListFC from './functionalComponents/EmployeeList';
-import { ShiftListFC } from './functionalComponents/ShiftList';
+import EmployeeListFC from './functionalComponentsWorking/EmployeeList';
+import { ShiftListFC } from './functionalComponentsWorking/ShiftList';
 
 class App extends Component<{}, {}> {
 
