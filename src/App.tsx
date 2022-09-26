@@ -1,8 +1,7 @@
 import { Component, ReactNode, useState } from 'react'
 import './App.css'
 import {EmployeeListCC} from './classComponents/EmployeeList';
-import {ShiftListCC} from './classComponents/ShiftList';
-import ShiftListFromList from './classComponents/ShiftListFromList';
+import ShiftListCC from './classComponents/ShiftListFromList';
 import EmployeeListFC from './functionalComponents/EmployeeList';
 import { ShiftListFC } from './functionalComponents/ShiftList';
 
@@ -19,7 +18,6 @@ class App extends Component<{}, {}> {
           <h1>Class Components</h1>
           <EmployeeListCC />
           <ShiftListCC />
-          <ShiftListFromList />
         </div>
         <div className="split right">
           <h1>Functional Components</h1>
