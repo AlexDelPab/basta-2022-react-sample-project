@@ -29,7 +29,7 @@ export class EmployeeListCC extends Component<IProps, IState> {
         this._employeeStore = new EmployeeStore();
         this._shiftStore = new ShiftStore();
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleAssignShiftToEmployee = this.handleAssignShiftToEmployee.bind(this);
     }
 
     async componentDidMount(): Promise<void> {
@@ -42,12 +42,12 @@ export class EmployeeListCC extends Component<IProps, IState> {
         })
     }
 
-    async handleChange(event: ChangeEvent<any>, employee: IEmployee) {
+    async handleAssignShiftToEmployee(event: ChangeEvent<any>, employee: IEmployee) {
         const shiftId = +event.target.value;
         const shift = this.state.shifts.find(s => s.id === shiftId);
         
         if (shift) {
-            await this._employeeStore.assignShift(employee, shift)
+            await this._employeeStore.assignShift(employee, shift);
             this.setState({
                 employees: this._employeeStore.elements
             });
@@ -61,7 +61,7 @@ export class EmployeeListCC extends Component<IProps, IState> {
             {!this.state.isLoading && this.state.employees.map((employee: IEmployee) => (
                 <div key={`employee-list-${employee.id}`}>
                     <span style={{ marginRight: "10px" }}>{employee.firstName} {employee.lastName} - {employee.shift?.name ?? 'Keine Schicht'}</span>
-                    <select value={employee.shift?.id} onChange={(e) => this.handleChange(e, employee)}>
+                    <select value={employee.shift?.id} onChange={(e) => this.handleAssignShiftToEmployee(e, employee)}>
                         <option value="">Bitte auswählen</option>
                         {this.state.shifts.map((shift: IShift) => (
                             <option key={`select-shift-option-${shift.id}`} value={shift.id}>{shift.name}</option>
