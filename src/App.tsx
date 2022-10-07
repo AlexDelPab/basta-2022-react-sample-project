@@ -2,8 +2,6 @@ import { Component, ReactNode } from 'react'
 import './App.css'
 import {EmployeeListCC} from './classComponents/EmployeeList';
 import ShiftListCC from './classComponents/ShiftList';
-import EmployeeListFC from './functionalComponentsWorking/EmployeeList';
-import { ShiftListFC } from './functionalComponentsWorking/ShiftList';
 
 class App extends Component<{}, {}> {
 
@@ -21,8 +19,6 @@ class App extends Component<{}, {}> {
         </div>
         <div className="split right">
           <h1>Functional Components</h1>
-          <EmployeeListFC />
-          <ShiftListFC />
         </div>
       </div>
     )
