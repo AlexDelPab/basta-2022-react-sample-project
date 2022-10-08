@@ -1,3 +1,3 @@
 export default function EmployeeListFC() {
-  return <></>;
+  return null;
 }
