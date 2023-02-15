@@ -20,8 +20,6 @@ class App extends Component<{}, {}> {
         </div>
         <div className="split right">
           <h1>Functional Components</h1>
-          <EmployeeListFC />
-          <ShiftListFC />
         </div>
       </div>
     );
