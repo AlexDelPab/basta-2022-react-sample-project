@@ -15,7 +15,7 @@ export function ShiftListFC() {
     return (<>
         <h2>Shift List with custom hook</h2>
         {!isLoading && data.map((shift: IShift) => (
-            <p key={`shift-list-fc-${shift.id}`}>{shift.name}</p>
+            <p key={`shift-list-hoc-${shift.id}`}>{shift.name}</p>
         ))}
     </>);
 }

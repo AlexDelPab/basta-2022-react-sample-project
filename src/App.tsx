@@ -1,10 +1,11 @@
-import { Component, ReactNode } from 'react'
-import './App.css'
-import {EmployeeListCC} from './classComponents/EmployeeList';
+import { Component, ReactNode } from 'react';
+import './App.css';
+import { EmployeeListCC } from './classComponents/EmployeeList';
 import ShiftListCC from './classComponents/ShiftList';
+import EmployeeListFC from './functionalComponents/EmployeeList';
+import { ShiftListFC } from './functionalComponents/ShiftList';
 
 class App extends Component<{}, {}> {
-
   constructor(props: {}) {
     super(props);
   }
@@ -19,10 +20,12 @@ class App extends Component<{}, {}> {
         </div>
         <div className="split right">
           <h1>Functional Components</h1>
+          <EmployeeListFC />
+          <ShiftListFC />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
